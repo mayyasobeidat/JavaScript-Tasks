@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+</head>
+<body>
+
+
+
+        <select  id="family" onchange="fontFamily()" >
+            <option value="Arial">Arial</option>
+            <option value="Tohama">Tohama</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+
+
+
+
+            <select id="fontsize" onchange="f_size()">
+                <option value="10px">10px</option>
+                <option value="30px">30px</option>
+                <option value="50px">50px</option>
+            </select>
+
+
+            
+
+    <label for="italic">Italic</label>
+    <input id="italic_text" type="checkbox" onclick="italicText()">
+
+
+
+    <label for="bold">Bold</label>
+    <input id="bold_text" type="checkbox" onclick="boldText()">
+
+
+
+    <label for="underline">Underline</label>
+    <input id="underline_text" type="checkbox" onclick="underlineText()">
+
+    <br>
+    <br>
+
+
+
+
+
+    <div ><textarea style="width:500px ; height: 250px;" id="textbox" >Orange Coding Academy</textarea></div>
+
+
+
+
+
+
+
+
+
+
+    <script src="task3.js"></script>
+
+</body>
+</html>
