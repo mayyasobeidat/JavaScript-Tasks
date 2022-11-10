@@ -92,18 +92,18 @@
 
 
 
-       localStorage.setItem("x",document.getElementById("subject").value);
-       let x = localStorage.getItem("x");
+       sessionStorage.setItem("x",document.getElementById("subject").value);
+       let x = sessionStorage.getItem("x");
 
-       localStorage.setItem("y",document.getElementById("description").value);
-       let y = localStorage.getItem("y");
+       sessionStorage.setItem("y",document.getElementById("description").value);
+       let y = sessionStorage.getItem("y");
 
-       localStorage.setItem("z",document.getElementById("usertypes").value);
-       let z = localStorage.getItem("z");
+       sessionStorage.setItem("z",document.getElementById("usertypes").value);
+       let z = sessionStorage.getItem("z");
 
       
    
-   if (localStorage.setItem("l",document.getElementById("html").checked)){
+   if (sessionStorage.setItem("l",document.getElementById("html").checked)){
 
        person.languge += document.getElementById('html').value;
    }  if (document.getElementById("css").checked){
@@ -112,13 +112,13 @@
        person.languge += document.getElementById("js").value;
    }
 
-   let l = localStorage.getItem("l");
+   let l = sessionStorage.getItem("l");
 
 
 
 
-   localStorage.setItem('personObj',JSON.stringify(person));
-   let perosnFormStorage = JSON.parse(localStorage.getItem('personObj')) ;
+   sessionStorage.setItem('personObj',JSON.stringify(person));
+   let perosnFormStorage = JSON.parse(sessionStorage.getItem('personObj')) ;
    
    document.getElementById("cardsubject").innerHTML = Masterpiece1.subject;
    document.getElementById("carddescription").innerHTML = Masterpiece1.description;
