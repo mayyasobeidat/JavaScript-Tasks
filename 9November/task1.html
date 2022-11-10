@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+
+    <style>
+        #mycard{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+   
+<form action="">
+    <fieldset style="width:280px;">
+
+    
+     <legend> Personal data :</legend>
+     <label for="myname"  >Name :</label>
+     <input type="text" name="myname" id="myname" ><br><br>
+     <label for="fage">Age :</label>
+     <input type="text" id="fage" name="fage"><br><br>
+     
+     
+      <label> Gender : </label>
+      <input type="radio"  name="Gender" id="gmale">
+      <label for="Gender">Male</label>
+      <input type="radio" name="Gender" id="gfemale">
+      <label for="Gender">Female</label><br><br>
+      
+      
+     <p><label for="description">Brief Description :</label></p>
+     <textarea id="description" name="description" rows="4" cols="50" placeholder="Write here your description"></textarea>
+     <br><br>
+   
+   
+     <label for="university ">Major and University : </label>
+     <input type="text " id="university" name="university"><br><br>
+     
+     
+     
+     <p><label for="Language">Programming Language :</label></p>    
+     <input type="checkbox" id="html">
+     <label for="Language1" >HTML</label>
+     <input type="checkbox" id="css">
+     <label for="Language2" >CSS</label>
+     <input type="checkbox" id="js">
+     <label for="Language3" >JavaScript</label><br><br>
+
+    
+<button type="submit" value="Submit" onclick="PersonalData()"> Submit</button>
+     
+    </fieldset>
+   </form>
+   <br><br><br>
+
+
+
+
+   <div id="mycard" style="width:350px;">
+    <label for="">Name :</label>
+    <span id="cardname"></span><br>
+    <label for="">Age :</label>
+    <span id="cardage"></span><br>
+    <label for="">Gender :</label>
+    <span id="cardgender"></span><br>
+    <label for="">Brief Description :</label>
+    <span id="carddescription"></span><br>
+    <label for="">Major and University :</label>
+    <span id="cardmajor"></span><br>
+    <label for="">Programming Language :</label>
+    <span id="cardpreferd"></span>
+    
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script>
+
+
+    function PersonalData()
+    {
+
+
+
+        
+        document.getElementById("mycard").style.display="block";
+        document.getElementById("mycard").style.border="2px solid gray";
+      document.getElementById("mycard").style.background="bisque";
+
+
+
+
+        localStorage.setItem("x",document.getElementById("myname").value);
+        let x = localStorage.getItem("x");
+
+        localStorage.setItem("y",document.getElementById("fage").value);
+        let y = localStorage.getItem("y");
+
+        localStorage.setItem("z",document.getElementById("description").value);
+        let z = localStorage.getItem("z");
+
+        localStorage.setItem("u",document.getElementById("university").value);
+        let u = localStorage.getItem("u");
+
+
+        if ( localStorage.setItem("g",document.getElementById("gmale").checked))
+        {
+        g.gender = document.getElementById("gmale").value;}
+        
+        else if( localStorage.setItem("g",document.getElementById("gfemale").checked)){
+        g.gender = document.getElementById("gfemale").value; }
+        
+        let g = localStorage.getItem("g");
+
+
+
+       
+    
+    if (localStorage.setItem("l",document.getElementById("html").checked)){
+
+        person.languge += document.getElementById('html').value;
+    }  if (document.getElementById("css").checked){
+        person.languge += document.getElementById('css').value;
+    }  if (document.getElementById("js").checked){
+        person.languge += document.getElementById("js").value;
+    }
+
+    let l = localStorage.getItem("l");
+
+
+
+
+    localStorage.setItem('personObj',JSON.stringify(person));
+    let perosnFormStorage = JSON.parse(localStorage.getItem('personObj')) ;
+    
+    document.getElementById("cardname").innerHTML = PersonalData1.name;
+    document.getElementById("cardage").innerHTML = PersonalData1.age;
+    document.getElementById("cardgender").innerHTML = PersonalData1.gender;
+    document.getElementById("carddescription").innerHTML = PersonalData1.description;
+    document.getElementById("cardmajor").innerHTML = PersonalData1.major;
+    document.getElementById("cardpreferd").innerHTML = PersonalData1.languge;
+
+
+
+
+    }
+
+   </script>
+    
+</body>
+</html>

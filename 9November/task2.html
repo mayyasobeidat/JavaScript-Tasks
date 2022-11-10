@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+
+    <style>
+        #mycard{
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+   
+<form action="">
+    <fieldset style="width:280px;">
+
+    
+     <legend> Idea of Masterpiece</legend>
+
+     <label for="subject">Subject :</label>
+     <input type="text" id="subject" name="subject"><br><br>
+  
+      
+      
+     <p><label for="description">Description :</label></p>
+     <textarea id="description" name="description" rows="4" cols="50" placeholder="Write here your description"></textarea>
+     <br><br>
+   
+   
+     <label for="usertypes">User Types : </label>
+     <input type="text " id="usertypes" name="usertypes "><br><br>
+     
+     
+     
+     <p><label for="technology">Technology Used :</label></p>    
+     <input type="checkbox" id="html">
+     <label for="Language1" >HTML</label>
+     <input type="checkbox" id="css">
+     <label for="Language2" >CSS</label>
+     <input type="checkbox" id="js">
+     <label for="Language3" >JavaScript</label><br><br>
+
+     <button type="submit" value="Submit" onclick="Masterpiece()">Submit</button>
+
+      
+     
+     
+    </fieldset>
+   </form>
+
+   <br><br><br>
+
+
+
+
+   <div id="mycard" style="width:350px;">
+    <label for="">Subject :</label>
+    <span id="cardsubject"></span><br>
+    <label for="">Description :</label>
+    <span id="carddescription"></span><br>
+    <label for="">User Types :</label>
+    <span id="carduser"></span><br>
+    <label for="">Technology Used :</label>
+    <span id="cardtechnology"></span><br>
+    
+    
+
+</div>
+
+    
+
+
+
+
+<script>
+
+   function Masterpiece()
+   {
+
+
+
+       
+       document.getElementById("mycard").style.display="block";
+       document.getElementById("mycard").style.border="2px solid gray";
+     document.getElementById("mycard").style.background="bisque";
+
+
+
+
+       localStorage.setItem("x",document.getElementById("subject").value);
+       let x = localStorage.getItem("x");
+
+       localStorage.setItem("y",document.getElementById("description").value);
+       let y = localStorage.getItem("y");
+
+       localStorage.setItem("z",document.getElementById("usertypes").value);
+       let z = localStorage.getItem("z");
+
+      
+   
+   if (localStorage.setItem("l",document.getElementById("html").checked)){
+
+       person.languge += document.getElementById('html').value;
+   }  if (document.getElementById("css").checked){
+       person.languge += document.getElementById('css').value;
+   }  if (document.getElementById("js").checked){
+       person.languge += document.getElementById("js").value;
+   }
+
+   let l = localStorage.getItem("l");
+
+
+
+
+   localStorage.setItem('personObj',JSON.stringify(person));
+   let perosnFormStorage = JSON.parse(localStorage.getItem('personObj')) ;
+   
+   document.getElementById("cardsubject").innerHTML = Masterpiece1.subject;
+   document.getElementById("carddescription").innerHTML = Masterpiece1.description;
+   document.getElementById("carduser").innerHTML = Masterpiece1.user;
+   document.getElementById("cardtechnology").innerHTML = Masterpiece1.technology;
+
+
+
+
+   }
+
+  </script>
+</body>
+</html>
