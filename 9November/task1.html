@@ -15,11 +15,11 @@
 <body>
 
    
-<form action="">
     <fieldset style="width:280px;">
-
+        <legend> Personal data :</legend>
+<form action="#">
     
-     <legend> Personal data :</legend>
+     
      <label for="myname"  >Name :</label>
      <input type="text" name="myname" id="myname" ><br><br>
      <label for="fage">Age :</label>
@@ -27,9 +27,9 @@
      
      
       <label> Gender : </label>
-      <input type="radio"  name="Gender" id="gmale">
+      <input type="radio"  name="Gender" id="gmale" value="male">
       <label for="Gender">Male</label>
-      <input type="radio" name="Gender" id="gfemale">
+      <input type="radio" name="Gender" id="gfemale" value="female">
       <label for="Gender">Female</label><br><br>
       
       
@@ -44,19 +44,21 @@
      
      
      <p><label for="Language">Programming Language :</label></p>    
-     <input type="checkbox" id="html">
+     <input type="checkbox" id="html" value="html">
      <label for="Language1" >HTML</label>
-     <input type="checkbox" id="css">
+     <input type="checkbox" id="css" value="css">
      <label for="Language2" >CSS</label>
-     <input type="checkbox" id="js">
+     <input type="checkbox" id="js" value="JavaScript">
      <label for="Language3" >JavaScript</label><br><br>
 
     
-<button type="submit" value="Submit" onclick="PersonalData()"> Submit</button>
      
-    </fieldset>
-   </form>
-   <br><br><br>
+   
+
+</form>
+<button type="submit" value="Submit" onclick="PersonalData()"> Submit</button>
+ </fieldset>
+<br><br><br>
 
 
 
@@ -73,7 +75,14 @@
     <label for="">Major and University :</label>
     <span id="cardmajor"></span><br>
     <label for="">Programming Language :</label>
-    <span id="cardpreferd"></span>
+    <span>
+        <ul style="list-style:none ; display: inline;" >
+            <li id="l1"></li>
+            <li id="l2"></li>
+            <li id="l3"></li>
+
+        </ul>
+    </span>
     
     
 
@@ -106,68 +115,116 @@
    <script>
 
 
-    function PersonalData()
-    {
-
-
+   function PersonalData()
+   {
 
         
-        document.getElementById("mycard").style.display="block";
-        document.getElementById("mycard").style.border="2px solid gray";
+      document.getElementById("mycard").style.display="block";
+      document.getElementById("mycard").style.border="2px solid gray";
       document.getElementById("mycard").style.background="bisque";
 
 
 
-
-        localStorage.setItem("x",document.getElementById("myname").value);
-        let x = localStorage.getItem("x");
-
-        localStorage.setItem("y",document.getElementById("fage").value);
-        let y = localStorage.getItem("y");
-
-        localStorage.setItem("z",document.getElementById("description").value);
-        let z = localStorage.getItem("z");
-
-        localStorage.setItem("u",document.getElementById("university").value);
-        let u = localStorage.getItem("u");
+      var na=document.getElementById("myname").value;
+      localStorage.setItem(na,"myname");
+      localStorage.getItem("myname");
+      document.getElementById("cardname").innerHTML =(na);
 
 
-        if ( localStorage.setItem("g",document.getElementById("gmale").checked))
-        {
-        g.gender = document.getElementById("gmale").value;}
+      var ag=document.getElementById("fage").value;
+      localStorage.setItem(ag,"fage");
+      localStorage.getItem("fage");
+      document.getElementById("cardage").innerHTML =(ag);
+
+      
+      var ds=document.getElementById("description").value;
+      localStorage.setItem(ds,"description");
+      localStorage.getItem("description");
+      document.getElementById("carddescription").innerHTML =(ds);
+
+
+      var un=document.getElementById("university").value;
+      localStorage.setItem(un,"university");
+      localStorage.getItem("university");
+      document.getElementById("cardmajor").innerHTML =(un);
+
+
+      
+
+localStorage.setItem("male", document.getElementById("gmale").checked);
+let male = document.getElementById("gmale").checked;
+
+localStorage.setItem("female", document.getElementById("gfemale").checked);
+let female = document.getElementById("gfemale").checked;
+
+let x = document.getElementById("gmale").checked;
+let y = document.getElementById("gfemale").checked;
+
+if (x)
+{
+    document.getElementById("cardgender").innerHTML = document.getElementById("gmale").value;
+}
+
+else if (y)
+{
+    document.getElementById("cardgender").innerHTML = document.getElementById("gfemale").value;
+
+}
+
+
+
         
-        else if( localStorage.setItem("g",document.getElementById("gfemale").checked)){
-        g.gender = document.getElementById("gfemale").value; }
-        
-        let g = localStorage.getItem("g");
+localStorage.setItem("html", document.getElementById("html").checked);
+let html = document.getElementById("html").checked;
+
+localStorage.setItem("css", document.getElementById("css").checked);
+let css = document.getElementById("css").checked;
+
+localStorage.setItem("js", document.getElementById("js").checked);
+let js = document.getElementById("js").checked;
+
+let h = document.getElementById("html").checked;
+let c = document.getElementById("css").checked;
+let j = document.getElementById("js").checked;
+
+
+if (h)
+{
+    document.getElementById("l1").innerHTML = document.getElementById("html").value;
+}
+
+if (c)
+{
+    document.getElementById("l2").innerHTML = document.getElementById("css").value;
+
+}
+
+if (j)
+{
+    document.getElementById("l3").innerHTML = document.getElementById("js").value;
+
+}
 
 
 
-       
-    
-    if (localStorage.setItem("l",document.getElementById("html").checked)){
-
-        person.languge += document.getElementById('html').value;
-    }  if (document.getElementById("css").checked){
-        person.languge += document.getElementById('css').value;
-    }  if (document.getElementById("js").checked){
-        person.languge += document.getElementById("js").value;
-    }
-
-    let l = localStorage.getItem("l");
 
 
 
 
-    localStorage.setItem('personObj',JSON.stringify(person));
-    let perosnFormStorage = JSON.parse(localStorage.getItem('personObj')) ;
-    
-    document.getElementById("cardname").innerHTML = PersonalData1.name;
-    document.getElementById("cardage").innerHTML = PersonalData1.age;
-    document.getElementById("cardgender").innerHTML = PersonalData1.gender;
-    document.getElementById("carddescription").innerHTML = PersonalData1.description;
-    document.getElementById("cardmajor").innerHTML = PersonalData1.major;
-    document.getElementById("cardpreferd").innerHTML = PersonalData1.languge;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

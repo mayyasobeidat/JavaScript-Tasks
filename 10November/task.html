@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        var email = "mayyasobeidat@gmail.com";
+        var regex = /[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$/g;
+        var x = email.match(regex);
+        console.log (x);
+
+
+
+        var password = "Mhf4l&R2";
+        var regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/g;
+        var z = password.match(regex);
+        console.log (z);
+
+    </script>
+</body>
+</html>

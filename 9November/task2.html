@@ -15,12 +15,13 @@
 </head>
 <body>
 
-   
-<form action="">
     <fieldset style="width:280px;">
 
     
-     <legend> Idea of Masterpiece</legend>
+        <legend> Idea of Masterpiece</legend>
+   
+<form action="">
+    
 
      <label for="subject">Subject :</label>
      <input type="text" id="subject" name="subject"><br><br>
@@ -38,20 +39,27 @@
      
      
      <p><label for="technology">Technology Used :</label></p>    
-     <input type="checkbox" id="html">
+     <input type="checkbox" id="html" value="HTML">
      <label for="Language1" >HTML</label>
-     <input type="checkbox" id="css">
+     <input type="checkbox" id="css" value="CSS">
      <label for="Language2" >CSS</label>
-     <input type="checkbox" id="js">
+     <input type="checkbox" id="js" value="JavaScript">
      <label for="Language3" >JavaScript</label><br><br>
 
-     <button type="submit" value="Submit" onclick="Masterpiece()">Submit</button>
 
       
      
      
-    </fieldset>
    </form>
+
+
+   <button type="submit" value="Submit" onclick="Masterpiece()">Submit</button>
+
+</fieldset>
+
+
+
+
 
    <br><br><br>
 
@@ -66,7 +74,14 @@
     <label for="">User Types :</label>
     <span id="carduser"></span><br>
     <label for="">Technology Used :</label>
-    <span id="cardtechnology"></span><br>
+    <span>
+        <ul style="list-style:none ; display: inline;" >
+            <li id="l1"></li>
+            <li id="l2"></li>
+            <li id="l3"></li>
+
+        </ul>
+    </span>
     
     
 
@@ -79,55 +94,69 @@
 
 <script>
 
-   function Masterpiece()
+function Masterpiece()
+
+
    {
 
-
-
-       
-       document.getElementById("mycard").style.display="block";
-       document.getElementById("mycard").style.border="2px solid gray";
-     document.getElementById("mycard").style.background="bisque";
-
-
-
-
-       sessionStorage.setItem("x",document.getElementById("subject").value);
-       let x = sessionStorage.getItem("x");
-
-       sessionStorage.setItem("y",document.getElementById("description").value);
-       let y = sessionStorage.getItem("y");
-
-       sessionStorage.setItem("z",document.getElementById("usertypes").value);
-       let z = sessionStorage.getItem("z");
+        
+      document.getElementById("mycard").style.display="block";
+      document.getElementById("mycard").style.border="2px solid gray";
+      document.getElementById("mycard").style.background="bisque";
 
       
-   
-   if (sessionStorage.setItem("l",document.getElementById("html").checked)){
-
-       person.languge += document.getElementById('html').value;
-   }  if (document.getElementById("css").checked){
-       person.languge += document.getElementById('css').value;
-   }  if (document.getElementById("js").checked){
-       person.languge += document.getElementById("js").value;
-   }
-
-   let l = sessionStorage.getItem("l");
+      var su=document.getElementById("subject").value;
+      localStorage.setItem(su,"subject");
+      localStorage.getItem("subject");
+      document.getElementById("cardsubject").innerHTML =(su);
 
 
+      var na=document.getElementById("description").value;
+      localStorage.setItem(na,"description");
+      localStorage.getItem("description");
+      document.getElementById("carddescription").innerHTML =(na);
 
 
-   sessionStorage.setItem('personObj',JSON.stringify(person));
-   let perosnFormStorage = JSON.parse(sessionStorage.getItem('personObj')) ;
-   
-   document.getElementById("cardsubject").innerHTML = Masterpiece1.subject;
-   document.getElementById("carddescription").innerHTML = Masterpiece1.description;
-   document.getElementById("carduser").innerHTML = Masterpiece1.user;
-   document.getElementById("cardtechnology").innerHTML = Masterpiece1.technology;
+      var ag=document.getElementById("usertypes").value;
+      localStorage.setItem(ag,"usertypes");
+      localStorage.getItem("usertypes");
+      document.getElementById("carduser").innerHTML =(ag);
 
 
+      
 
 
+        
+localStorage.setItem("html", document.getElementById("html").checked);
+let html = document.getElementById("html").checked;
+
+localStorage.setItem("css", document.getElementById("css").checked);
+let css = document.getElementById("css").checked;
+
+localStorage.setItem("js", document.getElementById("js").checked);
+let js = document.getElementById("js").checked;
+
+let h = document.getElementById("html").checked;
+let c = document.getElementById("css").checked;
+let j = document.getElementById("js").checked;
+
+
+if (h)
+{
+    document.getElementById("l1").innerHTML = document.getElementById("html").value;
+}
+
+if (c)
+{
+    document.getElementById("l2").innerHTML = document.getElementById("css").value;
+
+}
+
+if (j)
+{
+    document.getElementById("l3").innerHTML = document.getElementById("js").value;
+
+}
    }
 
   </script>

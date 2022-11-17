@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <select id="allname" onchange="breakingImg()"> 
+        <option id="name" ></option>
+    </select>
+
+    <img src="" id="img" style="width:300px; display: block;">
+
+
+
+<script>
+
+async function breakingBad(){
+
+const x = await fetch ("https://www.breakingbadapi.com/api/characters");
+console.log(x)
+const y = await x.json();
+console.log(y)
+
+for (let i = 0; i < y.length; i++) {
+const z = y[i];
+
+document.getElementById("allname").innerHTML += '<option>'+ z.name+'</option>' +"<br>";
+// var mylist = document.getElementById("allname");
+
+   
+
+
+//         document.writeln("<option>" + z.name + '</option>')
+//         document.writeln(`<img src='${z.img}'>`)
+//     }
+
+
+    // document.getElementById("name").innerHTML += '<option>'+${z.name} '</option>';
+
+// document.writeln("<option>" + z.name + '</option>')
+// document.writeln(`<img src='${z.img}'>`)
+
+
+// var names = document.getElementById("allname").value;
+//     if( z ){
+//         document.writeln("<option>" + z.name + '</option>')
+//         document.writeln(`<img src='${z.img}'>`)
+//     }
+
+}
+
+}
+
+breakingBad();
+
+async function breakingImg(){
+
+    const n = await fetch ("https://www.breakingbadapi.com/api/characters");
+console.log(n)
+const m = await n.json();
+console.log(m)
+
+
+let values = document.getElementById("allname").value;
+
+
+for (var c = 0; c < m.length; c++) {
+    if(values == m[c].name){
+
+document.getElementById('img').src=m[c].img;
+
+}
+  
+
+}}
+
+
+
+
+    </script>
+    
+</body>
+</html>
